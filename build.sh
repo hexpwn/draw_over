@@ -10,6 +10,6 @@ for target in chrome firefox; do
   cp src/background.js src/content.js "$out/"
   cp -r src/icons "$out/"
   cp "src/manifest.$target.json" "$out/manifest.json"
-  (cd "$out" && zip -qr "../draw-over-$target.zip" .)
+  (cd "$out" && zip -qrX "../draw-over-$target.zip" .)
   echo "built $out  ->  dist/draw-over-$target.zip"
 done

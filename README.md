@@ -10,18 +10,41 @@ pull a handle to resize. Nothing is baked in until you say so.
 
 ## Install
 
-Build the two loadable folders first:
+### From a release (no git, no build)
+
+Download the zip for your browser from the
+[latest release](https://github.com/hexpwn/draw_over/releases/latest):
+
+* [`draw-over-chrome.zip`](https://github.com/hexpwn/draw_over/releases/latest/download/draw-over-chrome.zip)
+  — Chrome, Edge, Brave
+* [`draw-over-firefox.zip`](https://github.com/hexpwn/draw_over/releases/latest/download/draw-over-firefox.zip)
+  — Firefox
+
+**Chrome / Edge / Brave**
+
+1. Unzip `draw-over-chrome.zip` into a folder you will keep — the browser loads the
+   extension from that folder every time it starts, so don't delete or move it.
+2. Open `chrome://extensions` and switch on *Developer mode* (top right).
+3. Click *Load unpacked* and pick the unzipped folder.
+
+**Firefox**
+
+1. Open `about:debugging#/runtime/this-firefox`.
+2. Click *Load Temporary Add-on* and pick `draw-over-firefox.zip` — no need to unzip it.
+
+Temporary add-ons are removed when Firefox restarts, so you repeat step 2 after a restart.
+For a permanent install the package has to be signed through addons.mozilla.org.
+
+### From source
+
+Build the two loadable folders first (needs `bash` and `zip`):
 
 ```sh
 ./build.sh          # -> dist/chrome, dist/firefox (+ matching .zip files)
 ```
 
-**Chrome / Edge / Brave** — `chrome://extensions` → enable *Developer mode* →
-*Load unpacked* → pick `dist/chrome`.
-
-**Firefox** — `about:debugging#/runtime/this-firefox` → *Load Temporary Add-on* →
-pick `dist/firefox/manifest.json`. Temporary add-ons are removed when Firefox restarts;
-for a permanent install the package has to be signed through addons.mozilla.org.
+Then follow the steps above, picking `dist/chrome` as the unpacked folder in Chrome, or
+`dist/firefox/manifest.json` as the temporary add-on in Firefox.
 
 ## Using it
 
